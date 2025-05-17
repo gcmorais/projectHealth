@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologia da Pesquisa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">Projeto saúde</a>
+            </div>
+            <div class="nav-links">
+                <a href="#metodologia">Metodologia</a>
+                <a href="resultados.html">Resultados</a>
+            </div>
+            <button class="cta-button" onclick="downloadPDF()">Baixar PDF</button>
+        </nav>
+
+        <section id="metodologia" class="section">
+            <h2>Metodologia da Pesquisa</h2>
+            
+            <div class="methodology-text">
+                <h3>Abordagem do Estudo</h3>
+                <p>Esta pesquisa foi desenvolvida utilizando uma abordagem mista, combinando métodos quantitativos e qualitativos para garantir uma análise abrangente dos hábitos de atividade física na comunidade. O estudo foi estruturado em três etapas principais: coleta de dados, campanha de conscientização e avaliação de impacto.</p>
+
+                <h3>Coleta de Dados</h3>
+                <p>Os dados foram coletados através de questionários aplicados em pesquisa de rua, distribuídos para uma amostra de 200 participantes, com idade entre 18 e 65 anos. O período de coleta durou 3 meses, garantindo uma representatividade adequada da população estudada. A coleta foi realizada em diferentes locais da comunidade para obter uma visão mais completa dos hábitos de atividade física.</p>
+
+                <h3>Instrumentos de Pesquisa</h3>
+                <p>O questionário foi composto por perguntas sobre:</p>
+                <ul class="methodology-list">
+                    <li>Frequência de prática de atividade física</li>
+                    <li>Duração média das sessões de exercício</li>
+                    <li>Tipos de atividades físicas praticadas</li>
+                    <li>Percepções sobre benefícios à saúde</li>
+                    <li>Hábitos de busca por informações sobre saúde</li>
+                    <li>Barreiras encontradas para a prática de exercícios</li>
+                    <li>Preferências por locais de prática</li>
+                </ul>
+
+                <h3>Campanha de Conscientização</h3>
+                <p>Após a análise inicial dos dados, foi desenvolvida uma campanha de conscientização que incluiu:</p>
+                <ul class="methodology-list">
+                    <li>Distribuição de materiais educativos (folhetos e cartazes)</li>
+                    <li>Orientações personalizadas sobre atividade física</li>
+                    <li>Divulgação de informações no site do projeto</li>
+                    <li>Indicação de programas e recursos disponíveis para a comunidade</li>
+                </ul>
+
+                <h3>Avaliação e Feedback</h3>
+                <p>Para avaliar o impacto das ações, foi realizada uma pesquisa de satisfação com os participantes, incluindo:</p>
+                <ul class="methodology-list">
+                    <li>Avaliação da qualidade das informações recebidas</li>
+                    <li>Mudanças nos hábitos de atividade física</li>
+                    <li>Sugestões para melhorias futuras</li>
+                    <li>Nível de satisfação com as ações realizadas</li>
+                </ul>
+
+                <h3>Análise dos Dados</h3>
+                <p>Os dados coletados foram analisados utilizando métodos estatísticos descritivos e análise de conteúdo para os dados qualitativos, permitindo a identificação de padrões e tendências nos hábitos de atividade física da população estudada. Os resultados foram organizados por faixa etária para melhor compreensão do perfil da comunidade.</p>
+            </div>
+
+            <div class="apps-section">
+                <h3>Aplicativos de Atividade Física Recomendados</h3>
+                <div class="apps-grid">
+                    <div class="app-item">
+                        <i class="fab fa-strava"></i>
+                        <h4>Strava</h4>
+                        <p>Monitoramento de corrida e ciclismo</p>
+                    </div>
+                    <div class="app-item">
+                        <i class="fas fa-running"></i>
+                        <h4>Nike Run Club</h4>
+                        <p>Treinos guiados e acompanhamento</p>
+                    </div>
+                    <div class="app-item">
+                        <i class="fas fa-utensils"></i>
+                        <h4>MyFitnessPal</h4>
+                        <p>Controle de nutrição e exercícios</p>
+                    </div>
+                    <div class="app-item">
+                        <i class="fas fa-bicycle"></i>
+                        <h4>Zwift</h4>
+                        <p>Treinos virtuais de ciclismo</p>
+                    </div>
+                    <div class="app-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>Fitbit</h4>
+                        <p>Monitoramento de saúde e atividades</p>
+                    </div>
+                    <div class="app-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Runtastic</h4>
+                        <p>Rastreamento de atividades ao ar livre</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

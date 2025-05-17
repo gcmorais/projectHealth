@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa: Atividade Física e Saúde</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">Projeto saúde</a>
+            </div>
+            <div class="nav-links">
+                <a href="metodologia.html">Metodologia</a>
+                <a href="resultados.html">Resultados</a>
+                <!-- <a href="#conclusao">Conclusão</a>
+                <a href="#referencias">Referências</a> -->
+            </div>
+            <button class="cta-button" onclick="downloadPDF()">Baixar PDF</button>
+        </nav>
+
+        <main class="hero">
+            <div class="hero-content">
+                <h1>Promoção da Saúde e Prevenção de Doenças por meio da Atividade Física</h1>
+                <p>Um estudo abrangente sobre os hábitos de atividade física e sua relação com a saúde da população</p>
+                <div class="hero-buttons">
+                    <a href="resultados.html" class="primary-button">Ver Resultados</a>
+                    <a href="metodologia.html" class="secondary-button">Metodologia</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card card1">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>78%</h3>
+                    <p>Praticam atividade física</p>
+                </div>
+                <div class="floating-card card2">
+                    <i class="fas fa-clock"></i>
+                    <h3>45%</h3>
+                    <p>30-60 min por dia</p>
+                </div>
+                <div class="floating-card card3">
+                    <i class="fas fa-users"></i>
+                    <h3>92%</h3>
+                    <p>Acreditam nos benefícios</p>
+                </div>
+            </div>
+        </main>
+
+        <section id="metodologia" class="section">
+            <h2>Metodologia</h2>
+            <div class="methodology-content">
+                <div class="methodology-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Amostra</h3>
+                    <p>43 pessoas entrevistadas</p>
+                </div>
+                <div class="methodology-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Período</h3>
+                    <p>Coleta de dados na 2ª Semana</p>
+                </div>
+                <div class="methodology-item">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Método</h3>
+                    <p>Pesquisa quantitativa e qualitativa</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

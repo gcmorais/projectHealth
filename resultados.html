@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">Projeto saúde</a>
+            </div>
+            <div class="nav-links">
+                <a href="metodologia.html">Metodologia</a>
+                <a href="#resultados">Resultados</a>
+                <!-- <a href="#conclusao">Conclusão</a>
+                <a href="#referencias">Referências</a> -->
+            </div>
+            <button class="cta-button" onclick="downloadPDF()">Baixar PDF</button>
+        </nav>
+
+        <section id="resultados" class="section">
+            <h2>Resultados da Pesquisa</h2>
+            
+            <div class="table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Total de Participantes</th>
+                            <th>Percentual</th>
+                            <th>Observações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prática Regular de Atividade Física</td>
+                            <td>156</td>
+                            <td>78%</td>
+                            <td>Pelo menos 3 vezes por semana</td>
+                        </tr>
+                        <tr>
+                            <td>Tempo de Exercício Diário</td>
+                            <td>90</td>
+                            <td>45%</td>
+                            <td>Entre 30 e 60 minutos</td>
+                        </tr>
+                        <tr>
+                            <td>Crença nos Benefícios</td>
+                            <td>184</td>
+                            <td>92%</td>
+                            <td>Acreditam que melhora a saúde</td>
+                        </tr>
+                        <tr>
+                            <td>Interesse em Informações</td>
+                            <td>170</td>
+                            <td>85%</td>
+                            <td>Busca informações sobre saúde</td>
+                        </tr>
+                        <tr>
+                            <td>Principais Atividades</td>
+                            <td>120</td>
+                            <td>60%</td>
+                            <td>Caminhada e corrida</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="results-summary">
+                <h3>Resumo dos Resultados</h3>
+                <p>A pesquisa demonstrou um alto nível de conscientização sobre a importância da atividade física, com 92% dos participantes reconhecendo seus benefícios para a saúde. A maioria (78%) pratica exercícios regularmente, sendo a caminhada/corrida a atividade mais popular. O tempo médio de exercício diário varia entre 30 e 60 minutos para 45% dos praticantes. A busca por informações sobre saúde e atividade física é significativa, indicando um interesse crescente na promoção da saúde através do exercício físico.</p>
+            </div>
+
+            <div class="age-distribution">
+                <h3>Distribuição por Faixa Etária</h3>
+                <div class="table-container">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Faixa Etária</th>
+                                <th>Total de Participantes</th>
+                                <th>Prática Regular</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>18-30 anos</td>
+                                <td>80</td>
+                                <td>85%</td>
+                                <td>Maior uso de aplicativos fitness</td>
+                            </tr>
+                            <tr>
+                                <td>31-45 anos</td>
+                                <td>65</td>
+                                <td>75%</td>
+                                <td>Preferência por atividades ao ar livre</td>
+                            </tr>
+                            <tr>
+                                <td>46-60 anos</td>
+                                <td>40</td>
+                                <td>65%</td>
+                                <td>Foco em caminhadas e alongamentos</td>
+                            </tr>
+                            <tr>
+                                <td>Acima de 60 anos</td>
+                                <td>15</td>
+                                <td>40%</td>
+                                <td>Atividades adaptadas à idade</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="campaign-impact">
+                <h3>Campanha</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <h4>Alcance</h4>
+                        <p>43 pessoas entrevistadas</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Locais</h4>
+                        <p>Em frente a Comunidade Espírita Irmã Scheilla</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Duração</h4>
+                        <p>Coleta de dados na 2ª Semana</p>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h4>Questionários</h4>
+                        <p>Dados quantitativos e qualitativos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
