@@ -576,4 +576,10 @@ body {
     .impact-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.chart-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
 } 

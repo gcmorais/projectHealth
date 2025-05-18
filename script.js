@@ -35,6 +35,69 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
+
+    // Gráfico de Prática Regular por Faixa Etária
+    const labels = ['18-30 anos', '31-45 anos', '46-60 anos', 'Acima de 60 anos'];
+    const data = [85.7, 75, 62.5, 50];
+
+    const ctx = document.getElementById('graficoFaixaEtaria');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Prática Regular (%)',
+                    data: data,
+                    backgroundColor: [
+                        '#4caf50',
+                        '#2196f3',
+                        '#ffc107',
+                        '#f44336'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#333'
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Prática Regular de Atividade Física por Faixa Etária',
+                        color: '#333',
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Faixa Etária',
+                            color: '#333'
+                        },
+                        ticks: { color: '#333' }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Percentual (%)',
+                            color: '#333'
+                        },
+                        min: 0,
+                        max: 90,
+                        ticks: { color: '#333' }
+                    }
+                }
+            }
+        });
+    }
 });
 
 // Função para gerar e baixar o PDF
@@ -45,10 +108,14 @@ function downloadPDF() {
     // Título
     doc.setFontSize(24);
     doc.text('Resultados da Pesquisa', 105, 20, { align: 'center' });
-    
+
     // Subtítulo
     doc.setFontSize(16);
     doc.text('Atividade Física e Saúde', 105, 30, { align: 'center' });
+
+    // Fonte dos dados
+    doc.setFontSize(10);
+    doc.text('Dados retirados do site do projeto saúde (https://projeto-saude-snowy.vercel.app/)', 105, 37, { align: 'center' });
 
     // Texto introdutório
     doc.setFontSize(12);
@@ -57,11 +124,11 @@ function downloadPDF() {
     // Tabela de resultados
     const tableData = [
         ['Categoria', 'Total', 'Percentual', 'Observações'],
-        ['Prática Regular', '34', '78%', 'Pelo menos 3 vezes por semana'],
-        ['Tempo Diário', '19', '45%', 'Entre 30 e 60 minutos'],
-        ['Crença nos Benefícios', '40', '92%', 'Acreditam que melhora a saúde'],
-        ['Interesse em Informações', '37', '85%', 'Busca informações sobre saúde'],
-        ['Principais Atividades', '26', '60%', 'Caminhada e corrida']
+        ['Prática Regular de Atividade Física', '33', '77%', 'Pelo menos 3 vezes por semana'],
+        ['Tempo de Exercício Diário', '20', '47%', 'Entre 30 e 60 minutos'],
+        ['Crença nos Benefícios', '40', '93%', 'Acreditam que melhora a saúde'],
+        ['Interesse em Informações', '36', '84%', 'Busca informações sobre saúde'],
+        ['Principais Atividades', '25', '58%', 'Caminhada e corrida']
     ];
 
     doc.autoTable({
@@ -79,10 +146,10 @@ function downloadPDF() {
     
     const ageData = [
         ['Faixa Etária', 'Total', 'Prática Regular', 'Observações'],
-        ['18-30 anos', '17', '85%', 'Maior uso de aplicativos fitness'],
-        ['31-45 anos', '14', '75%', 'Preferência por atividades ao ar livre'],
-        ['46-60 anos', '9', '65%', 'Foco em caminhadas e alongamentos'],
-        ['Acima de 60 anos', '3', '40%', 'Atividades adaptadas à idade']
+        ['18-30 anos', '21', '85,7%', 'Alta adesão a esportes coletivos, corrida e uso de aplicativos fitness.'],
+        ['31-45 anos', '12', '75%', 'Preferência por caminhada e musculação; falta de tempo é uma barreira comum.'],
+        ['46-60 anos', '8', '62,5%', 'Foco em caminhadas e atividades leves; barreiras incluem motivação e saúde.'],
+        ['Acima de 60 anos', '2', '50%', 'Atividades adaptadas como caminhada e alongamento; saúde é a principal barreira.']
     ];
 
     doc.autoTable({
@@ -94,9 +161,32 @@ function downloadPDF() {
         headStyles: { fillColor: [41, 128, 185] }
     });
 
+    // Adicionar o gráfico ao PDF
+    const chartCanvas = document.getElementById('graficoFaixaEtaria');
+    let campaignStartY;
+    if (chartCanvas) {
+        const chartImage = chartCanvas.toDataURL('image/png', 1.0);
+        // Largura máxima do gráfico no PDF
+        const imgWidth = 170;
+        const imgHeight = (chartCanvas.height / chartCanvas.width) * imgWidth;
+        // Verifica se há espaço suficiente na página, senão adiciona nova página
+        let posY = doc.lastAutoTable.finalY + 40;
+        if (posY + imgHeight > 270) { // 270 é um limite seguro para A4 retrato
+            doc.addPage();
+            posY = 20;
+        }
+        doc.setFontSize(14);
+        doc.text('Gráfico: Prática Regular de Atividade Física por Faixa Etária', 20, posY);
+        doc.addImage(chartImage, 'PNG', 20, posY + 5, imgWidth, imgHeight);
+        // Atualiza a posição para o próximo bloco
+        campaignStartY = posY + 5 + imgHeight + 20;
+    } else {
+        campaignStartY = doc.lastAutoTable.finalY + 30;
+    }
+
     // Informações da Campanha
     doc.setFontSize(14);
-    doc.text('Detalhes da Campanha', 20, doc.lastAutoTable.finalY + 20);
+    doc.text('Detalhes da Campanha', 20, campaignStartY);
     
     doc.setFontSize(12);
     const campaignInfo = [
@@ -111,7 +201,7 @@ function downloadPDF() {
         '• Barreiras encontradas para a prática'
     ];
 
-    doc.text(campaignInfo, 20, doc.lastAutoTable.finalY + 30);
+    doc.text(campaignInfo, 20, campaignStartY + 10);
 
     // Nova página para metodologia
     doc.addPage();
